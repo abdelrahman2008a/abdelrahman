@@ -1,0 +1,41 @@
+#include<iostream>
+#include<fstream>
+#include<bits/stdc++.h>
+#include<deque>
+#include<cmath>
+#include<math.h>
+#include<stdio.h>
+#define ll long long
+#define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+const double pi = 3.14159265359 ;
+using namespace std;
+// (stoi) str==>int
+//__builtin_popcount (Numbers of ones in binary)
+//freopen(".in", "r", stdin);
+//freopen(".out", "w", stdout);
+int main()
+{
+    fast
+    int t;cin >> t;
+    while(t--)
+    {
+        int n ;
+        cin >> n ;
+        stack<int>st;
+        ll res=0;
+        for(int i=0 ; i<n ; i++)
+        {
+            char x;
+            cin >> x;
+            if((x=='_'&&st.empty())||(x=='('))
+            {
+                st.push(i);
+            }
+            else{
+                res+=(i-st.top());
+                st.pop();
+            }
+        }
+        cout << res << "\n";
+    }
+}
